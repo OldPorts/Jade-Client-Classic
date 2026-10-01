@@ -1,0 +1,22 @@
+// Loom setup shared by every Jade Client subproject.
+// Each module applies this script instead of repeating the loom configuration.
+// All Jade submodules are client-environment mods with a single source set,
+// which keeps cross-module classpath wiring trivial.
+
+apply plugin: 'net.fabricmc.fabric-loom'
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	// MC 26.1 ships unobfuscated: no mappings/remapping layer needed.
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+processResources {
+	def version = project.version
+	inputs.property 'version', version
+
+	filesMatching('fabric.mod.json') {
+		expand 'version': version
+	}
+}

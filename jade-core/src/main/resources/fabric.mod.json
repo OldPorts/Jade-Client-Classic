@@ -1,0 +1,15 @@
+{
+	"schemaVersion": 1,
+	"id": "jade-core",
+	"version": "${version}",
+	"name": "Jade Core",
+	"description": "Module system, event bus and settings for Jade Client.",
+	"license": "MIT",
+	"environment": "*",
+	"depends": {
+		"jade-config": "*"
+	},
+	"custom": {
+		"jade:library": true
+	}
+}

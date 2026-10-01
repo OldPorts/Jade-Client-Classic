@@ -1,0 +1,17 @@
+{
+	"schemaVersion": 1,
+	"id": "jade-config",
+	"version": "26.1.0-beta.1",
+	"name": "Jade Config",
+	"description": "Configuration persistence for Jade Client.",
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.jadeclient.config.ConfigInit"
+		]
+	},
+	"custom": {
+		"jade:library": true
+	}
+}

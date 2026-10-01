@@ -1,0 +1,15 @@
+{
+	"schemaVersion": 1,
+	"id": "jade-core",
+	"version": "26.1.0-beta.1",
+	"name": "Jade Core",
+	"description": "Module system, event bus and settings for Jade Client.",
+	"license": "MIT",
+	"environment": "*",
+	"depends": {
+		"jade-config": "*"
+	},
+	"custom": {
+		"jade:library": true
+	}
+}
