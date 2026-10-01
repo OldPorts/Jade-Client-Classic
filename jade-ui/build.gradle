@@ -1,0 +1,7 @@
+apply from: '../gradle/loom.gradle'
+
+dependencies {
+	api project(':jade-core')
+	api project(':jade-modules')
+	implementation project(':jade-performance')
+}

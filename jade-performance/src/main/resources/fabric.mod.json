@@ -1,0 +1,20 @@
+{
+	"schemaVersion": 1,
+	"id": "jade-performance",
+	"version": "${version}",
+	"name": "Jade Performance",
+	"description": "FPS boosting optimizations for Jade Client.",
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.jadeclient.perf.PerformanceInit"
+		]
+	},
+	"mixins": [
+		"jade-performance.client.mixins.json"
+	],
+	"custom": {
+		"jade:library": true
+	}
+}

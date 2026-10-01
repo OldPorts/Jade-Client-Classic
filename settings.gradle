@@ -1,0 +1,3 @@
+// Single-module Forge 1.8.9 project. All jade-* source trees are merged
+// into the root sourceSet (see build.gradle); these includes are gone.
+rootProject.name = 'jade-client'

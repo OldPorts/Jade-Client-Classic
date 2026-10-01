@@ -1,0 +1,21 @@
+{
+	"schemaVersion": 1,
+	"id": "jade-ui",
+	"version": "${version}",
+	"name": "Jade UI",
+	"description": "ClickGUI, HUD renderer and onboarding for Jade Client.",
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.jadeclient.ui.JadeClientClient"
+		]
+	},
+	"depends": {
+		"jade-core": "*",
+		"jade-modules": "*"
+	},
+	"custom": {
+		"jade:library": true
+	}
+}

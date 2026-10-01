@@ -1,0 +1,16 @@
+[
+{
+  "modid": "jadeclient",
+  "name": "Jade Client",
+  "description": "Performance-focused, EULA-compliant client mod: FPS boosts, HUD customization, clean menu, opt-in cosmetics. No cheats, ever.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/jadeclient/jade-client",
+  "updateUrl": "",
+  "authorList": ["Jade Client Team"],
+  "credits": "Built for Forge 1.8.9",
+  "logoFile": "assets/jadeclient/textures/gui/logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

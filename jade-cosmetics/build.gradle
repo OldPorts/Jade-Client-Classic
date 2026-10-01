@@ -1,0 +1,6 @@
+apply from: '../gradle/loom.gradle'
+
+dependencies {
+	implementation project(':jade-ui')
+	implementation project(':jade-modules')
+}

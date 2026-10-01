@@ -1,0 +1,91 @@
+// Jade Client - Forge 1.8.9 build (ForgeGradle 2.1, MCP stable_22, Java 8).
+//
+// Build requirements:
+//   - JDK 8 (e.g. 1.8.0_xxx). JAVA_HOME must point at it.
+//   - Use the wrapper:  gradlew setupDecompWorkspace  (first time / IDE)
+//                       gradlew build
+// ForgeGradle 2.1 does NOT run on Gradle 3+ or on JDK 9+.
+//
+// All former Fabric submodules (jade-core, jade-config, jade-performance,
+// jade-modules, jade-ui, jade-cosmetics) are merged into this single Forge
+// mod jar. Their sources stay in place and are wired into the root
+// sourceSet below, so no file moves are needed.
+
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = 'forge'
+            url = 'http://files.minecraftforge.net/maven'
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = project.version
+group = project.group
+archivesBaseName = 'jade-client'
+
+sourceCompatibility = targetCompatibility = '1.8'
+
+minecraft {
+    version = project.forge_version
+    runDir = 'run'
+    mappings = project.mcp_mappings
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = [
+                'src/main/java',
+                'jade-core/src/main/java',
+                'jade-config/src/main/java',
+                'jade-performance/src/main/java',
+                'jade-modules/src/main/java',
+                'jade-ui/src/main/java',
+                'jade-cosmetics/src/main/java'
+            ]
+        }
+        resources {
+            srcDirs = [
+                'src/main/resources',
+                'jade-core/src/main/resources',
+                'jade-config/src/main/resources',
+                'jade-performance/src/main/resources',
+                'jade-modules/src/main/resources',
+                'jade-ui/src/main/resources',
+                'jade-cosmetics/src/main/resources'
+            ]
+            // Fabric descriptors must not ship in the Forge jar.
+            exclude 'fabric.mod.json'
+            exclude 'jade-performance.client.mixins.json'
+        }
+    }
+}
+
+dependencies {
+    // Gson ships with Minecraft 1.8.9; declared here for IDE resolution.
+    // ForgeGradle adds the MC + Forge deps automatically.
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', project.mc_version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version': project.version, 'mcversion': project.mc_version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+        // Fabric descriptors must not ship in the Forge jar.
+        exclude 'fabric.mod.json'
+        exclude 'jade-performance.client.mixins.json'
+    }
+}

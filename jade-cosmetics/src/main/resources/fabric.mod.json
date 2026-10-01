@@ -1,0 +1,20 @@
+{
+	"schemaVersion": 1,
+	"id": "jade-cosmetics",
+	"version": "${version}",
+	"name": "Jade Cosmetics",
+	"description": "Opt-in client-side cosmetics for Jade Client.",
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.jadeclient.cosmetics.JadeCosmeticsClient"
+		]
+	},
+	"depends": {
+		"jade-core": "*"
+	},
+	"custom": {
+		"jade:library": true
+	}
+}
